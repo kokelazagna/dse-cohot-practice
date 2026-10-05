@@ -5,172 +5,172 @@
     <body>
         <script>
 
-// const originalProducts = [
-//   { id: "P01", name: "Notebook", price: 3500, stock: 10 },
-//   { id: "P02", name: "Pen", price: 500, stock: 25 },
-//   { id: "P03", name: "Folder", price: 1200, stock: 0 },
-//   { id: "P04", name: "Marker", price: 1500, stock: 4 }
-// ];
+const originalProducts = [
+  { id: "P01", name: "Notebook", price: 3500, stock: 10 },
+  { id: "P02", name: "Pen", price: 500, stock: 25 },
+  { id: "P03", name: "Folder", price: 1200, stock: 0 },
+  { id: "P04", name: "Marker", price: 1500, stock: 4 }
+];
 
 
-// // ============================================================
-// // TASK 1 - Read and explain code
-// // ============================================================
+// ============================================================
+// TASK 1 - Read and explain code
+// ============================================================
 
-// let total = 0;
-// for (const product of products) {
-//   if (product.stock > 0) {
-//     total += product.price * product.stock;
-//   }
-// }
-// console.log(total);
+let total = 0;
+for (const product of products) {
+  if (product.stock > 0) {
+    total += product.price * product.stock;
+  }
+}
+console.log(total);
 
-// // 1. Output: 53500
-// //
-// // 2. Purpose
-// //    - Loop: visits every product in the products array, one at a time.
-// //    - Condition (product.stock > 0): skips products that are out of stock,
-// //      so only products the shop actually has are counted.
-// //    - total: accumulator that starts at 0 and adds price x stock for each
-// //      product, so at the end it holds the value of all stock in the shop.
-// //
-// // 3. let vs const
-// //    - total is a number that is REASSIGNED on every pass of the loop
-// //      (total += ...), so it must be declared with let.
-// //    - const stops the variable 'products' from being reassigned to a
-// //      different array or object. It does NOT make the contents frozen.
-// //      Changing product.stock modifies a property inside an object, and the
-// //      variable 'products' still points to the same array, so const is fine.
+// 1. Output: 53500
+//
+// 2. Purpose
+//    - Loop: visits every product in the products array, one at a time.
+//    - Condition (product.stock > 0): skips products that are out of stock,
+//      so only products the shop actually has are counted.
+//    - total: accumulator that starts at 0 and adds price x stock for each
+//      product, so at the end it holds the value of all stock in the shop.
+//
+// 3. let vs const
+//    - total is a number that is REASSIGNED on every pass of the loop
+//      (total += ...), so it must be declared with let.
+//    - const stops the variable 'products' from being reassigned to a
+//      different array or object. It does NOT make the contents frozen.
+//      Changing product.stock modifies a property inside an object, and the
+//      variable 'products' still points to the same array, so const is fine.
 
-// // TASK 2 - calculateTotal
-// // ============================================================
-// function calculateTotal(quantity, unitPrice) {
-//   if (typeof quantity !== "number" || typeof unitPrice !== "number") {
-//     return null;
-//   }
-//   if (!Number.isInteger(quantity) || quantity <= 0) {
-//     return null;
-//   }
-//   if (!Number.isInteger(unitPrice) || unitPrice < 0) {
-//     return null;
-//   }
-//   return quantity * unitPrice;
-// }
+// TASK 2 - calculateTotal
+// ============================================================
+function calculateTotal(quantity, unitPrice) {
+  if (typeof quantity !== "number" || typeof unitPrice !== "number") {
+    return null;
+  }
+  if (!Number.isInteger(quantity) || quantity <= 0) {
+    return null;
+  }
+  if (!Number.isInteger(unitPrice) || unitPrice < 0) {
+    return null;
+  }
+  return quantity * unitPrice;
+}
     
-// console.log(calculateTotal(1,14))
+console.log(calculateTotal(1,14))
 
 
-// // ============================================================
-// // TASK 3 - Process the product collection
-// // ============================================================
-// function findProduct(productList, productId) {
-//   const found = productList.find(item => item.id === productId);
-//   return found === undefined ? null : found;
-// }
+// ============================================================
+// TASK 3 - Process the product collection
+// ============================================================
+function findProduct(productList, productId) {
+  const found = productList.find(item => item.id === productId);
+  return found === undefined ? null : found;
+}
  
-// function calculateInventoryValue(productList) {
-//   let sum = 0;
-//   for (const item of productList) {
-//     sum += item.price * item.stock;
-//   }
-//   return sum; 
-// }
+function calculateInventoryValue(productList) {
+  let sum = 0;
+  for (const item of productList) {
+    sum += item.price * item.stock;
+  }
+  return sum; 
+}
  
-// function getLowStockProducts(productList, threshold) {
-//   return productList.filter(item => item.stock < threshold);
-// }
+function getLowStockProducts(productList, threshold) {
+  return productList.filter(item => item.stock < threshold);
+}
 
-// // ============================================================
-// // TASK 4 - Debug and implement a sale
-// // ============================================================
-// // 1. Defects in the original sellProduct:
-// //    a) No check that the product exists. If find() returns undefined,
-// //       product.stock crashes with a TypeError.
-// //    b) No check that quantity is a positive whole number (0, -2, 2.5 and
-// //       "3" are all accepted).
-// //    c) Stock goes UP: product.stock += quantity should be -=.
-// //    d) Wrong return value: price + quantity should be price * quantity.
-// //    e) Failed sales return 0, but the requirements say return null
-// //       (0 is also confusing because it looks like a valid total).
+// ============================================================
+// TASK 4 - Debug and implement a sale
+// ============================================================
+// 1. Defects in the original sellProduct:
+//    a) No check that the product exists. If find() returns undefined,
+//       product.stock crashes with a TypeError.
+//    b) No check that quantity is a positive whole number (0, -2, 2.5 and
+//       "3" are all accepted).
+//    c) Stock goes UP: product.stock += quantity should be -=.
+//    d) Wrong return value: price + quantity should be price * quantity.
+//    e) Failed sales return 0, but the requirements say return null
+//       (0 is also confusing because it looks like a valid total).
  
-// function sellProduct(productList, productId, quantity) {
-//   const product = productList.find(item => item.id === productId);
+function sellProduct(productList, productId, quantity) {
+  const product = productList.find(item => item.id === productId);
  
-//   if (product === undefined) {
-//     return null; // product does not exist
-//   }
-//   if (typeof quantity !== "number" || !Number.isInteger(quantity) || quantity <= 0) {
-//     return null; // quantity must be a positive whole number
-//   }
-//   if (product.stock < quantity) {
-//     return null; // not enough stock; stock is left unchanged
-//   }
+  if (product === undefined) {
+    return null; // product does not exist
+  }
+  if (typeof quantity !== "number" || !Number.isInteger(quantity) || quantity <= 0) {
+    return null; // quantity must be a positive whole number
+  }
+  if (product.stock < quantity) {
+    return null; // not enough stock; stock is left unchanged
+  }
  
-//   product.stock -= quantity;
-//   return product.price * quantity;
-// }
+  product.stock -= quantity;
+  return product.price * quantity;
+}
 
  
-// console.log("\n===== TASK 4 =====");
-// const shopData = freshCopy(originalProducts);
+console.log("\n===== TASK 4 =====");
+const shopData = freshCopy(originalProducts);
  
-// // Successful sale: 3 Notebooks
-// console.log("Before sale, P01 stock:", findProduct(shopData, "P01").stock); // 10
-// console.log("Sale result (P01 x3):", sellProduct(shopData, "P01", 3));      // 10500
-// console.log("After sale, P01 stock:", findProduct(shopData, "P01").stock);  // 7
+// Successful sale: 3 Notebooks
+console.log("Before sale, P01 stock:", findProduct(shopData, "P01").stock); // 10
+console.log("Sale result (P01 x3):", sellProduct(shopData, "P01", 3));      // 10500
+console.log("After sale, P01 stock:", findProduct(shopData, "P01").stock);  // 7
  
-// // Rejected sale: 5 Markers but only 4 in stock
-// console.log("Before rejected sale, P04 stock:", findProduct(shopData, "P04").stock); // 4
-// console.log("Sale result (P04 x5):", sellProduct(shopData, "P04", 5));               // null
-// console.log("After rejected sale, P04 stock:", findProduct(shopData, "P04").stock);  // 4
+// Rejected sale: 5 Markers but only 4 in stock
+console.log("Before rejected sale, P04 stock:", findProduct(shopData, "P04").stock); // 4
+console.log("Sale result (P04 x5):", sellProduct(shopData, "P04", 5));               // null
+console.log("After rejected sale, P04 stock:", findProduct(shopData, "P04").stock);  // 4
 
 
 
-// // ============================================================
-// // TASK 5 - Tests and change
-// // ============================================================
-// console.log("\n===== TASK 5 =====");
+// ============================================================
+// TASK 5 - Tests and change
+// ============================================================
+console.log("\n===== TASK 5 =====");
  
-// function runTest(name, expected, actual) {
-//   const passed = JSON.stringify(expected) === JSON.stringify(actual);
-//   console.log(
-//     name + " | expected: " + JSON.stringify(expected) +
-//     " | actual: " + JSON.stringify(actual) +
-//     " | " + (passed ? "PASS" : "FAIL")
-//   );
-// }
+function runTest(name, expected, actual) {
+  const passed = JSON.stringify(expected) === JSON.stringify(actual);
+  console.log(
+    name + " | expected: " + JSON.stringify(expected) +
+    " | actual: " + JSON.stringify(actual) +
+    " | " + (passed ? "PASS" : "FAIL")
+  );
+}
  
-// // Normal case
-// runTest("Normal: calculateTotal(3, 3500)", 10500, calculateTotal(3, 3500));
-// // Boundary case (smallest valid quantity, free item)
-// runTest("Boundary: calculateTotal(1, 0)", 0, calculateTotal(1, 0));
-// // Invalid input
-// runTest('Invalid: calculateTotal("3", 500)', null, calculateTotal("3", 500));
-// // Sale at the exact stock limit (boundary): selling all 4 markers works
-// const testData = freshCopy(originalProducts);
-// runTest("Boundary: sellProduct(P04, 4)", 6000, sellProduct(testData, "P04", 4));
+// Normal case
+runTest("Normal: calculateTotal(3, 3500)", 10500, calculateTotal(3, 3500));
+// Boundary case (smallest valid quantity, free item)
+runTest("Boundary: calculateTotal(1, 0)", 0, calculateTotal(1, 0));
+// Invalid input
+runTest('Invalid: calculateTotal("3", 500)', null, calculateTotal("3", 500));
+// Sale at the exact stock limit (boundary): selling all 4 markers works
+const testData = freshCopy(originalProducts);
+runTest("Boundary: sellProduct(P04, 4)", 6000, sellProduct(testData, "P04", 4));
  
-// // 2. Explanation of one function (sellProduct) for the trainer
-// //    Inputs: productList (array of products), productId (string such as
-// //    "P01"), quantity (number).
-// //    Output: the sale total (price x quantity) if the sale is valid,
-// //    otherwise null.
-// //    Main decisions: it first looks for the product and returns null if it
-// //    is missing. It then checks that quantity is a positive whole number.
-// //    Then it checks that stock is enough. Only after all checks pass does
-// //    it reduce stock and return the total, so a rejected sale never changes
-// //    stock.
+// 2. Explanation of one function (sellProduct) for the trainer
+//    Inputs: productList (array of products), productId (string such as
+//    "P01"), quantity (number).
+//    Output: the sale total (price x quantity) if the sale is valid,
+//    otherwise null.
+//    Main decisions: it first looks for the product and returns null if it
+//    is missing. It then checks that quantity is a positive whole number.
+//    Then it checks that stock is enough. Only after all checks pass does
+//    it reduce stock and return the total, so a rejected sale never changes
+//    stock.
  
-// // 3. Change: stock equal to OR below the threshold
-// function getLowStockProductsInclusive(productList, threshold) {
-//   return productList.filter(item => item.stock <= threshold);
-// }
+// 3. Change: stock equal to OR below the threshold
+function getLowStockProductsInclusive(productList, threshold) {
+  return productList.filter(item => item.stock <= threshold);
+}
  
-// console.log("\nThreshold 4 comparison:");
-// console.log("Below 4  (<):", getLowStockProducts(products, 4).map(p => p.name));
-// // ["Folder"]  - Marker has stock 4, which is not below 4
-// console.log("At or below 4 (<=):", getLowStockProductsInclusive(products, 4).map(p => p.name));
-// // ["Folder", "Marker"] - Marker is now included
+console.log("\nThreshold 4 comparison:");
+console.log("Below 4  (<):", getLowStockProducts(products, 4).map(p => p.name));
+// ["Folder"]  - Marker has stock 4, which is not below 4
+console.log("At or below 4 (<=):", getLowStockProductsInclusive(products, 4).map(p => p.name));
+// ["Folder", "Marker"] - Marker is now included
  
   function doubleTheNumber(number){
     return Number(String(number).split('').map(num => num * num).join(""))
