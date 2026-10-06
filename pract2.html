@@ -1,0 +1,131 @@
+<script>
+    const marks = [78, 45, 90, "62", 50, 0, 100, 33];
+
+
+const isValidMark = (n) => Number.isInteger(n) && n >= 0 && n <= 100;
+
+function analyseMarks(marks, passMark = 50) {
+  if (!Array.isArray(marks) || marks.length === 0) {
+    return null; 
+  }
+  if (!isValidMark(passMark)) {
+    return null; 
+  }
+  for (let i = 0; i < marks.length; i++) {
+    if (!isValidMark(marks[i])) {
+      return null; 
+    }
+  }
+
+ 
+
+
+
+  // ---------- B. Process the array with an indexed for loop ----------
+
+  let total = 0;
+  let highest = marks[0];
+  let lowest = marks[0];
+  let passed = 0;
+  let failed = 0;
+  let evenCount = 0;
+
+  for (let i = 0; i < marks.length; i++) {
+    const mark = marks[i];
+
+    total += mark;                      
+    if (mark > highest) highest = mark;
+    if (mark < lowest) lowest = mark;
+
+    if (mark >= passMark) {
+      passed++;                         
+    } else {
+      failed++;
+    }
+
+    if (mark % 2 === 0) {                
+      evenCount++;
+    }
+  }
+
+  const average = Number((total / marks.length).toFixed(2));
+  const range = highest - lowest;
+  const passRate = Number(((passed / marks.length) * 100).toFixed(2));
+
+  // ---------- C. Make decisions ----------
+
+  const status = average >= passMark ? "Target met" : "Needs support";
+
+  let grade;
+  switch (true) {
+    case average >= 80:
+      grade = "A";
+      break;
+    case average >= 60 && average < 80:
+      grade = "B";
+      break;
+    case average >= 50 && average < 60:
+      grade = "C";
+      break;
+    default:
+      grade = "D";
+  }
+
+  return { total, average, highest, lowest, range, passed, failed, evenCount, passRate, status, grade };
+}
+
+ console.log("THE DISSPLAY OF ANALYSE FN", analyseMarks(marks))
+
+// ---------- D. Demonstrate and explain ----------
+function test(label, actual, expected) {
+  const a = JSON.stringify(actual);
+  const e = JSON.stringify(expected);
+  console.log(label);
+  console.log("  expected:", e);
+  console.log("  actual:  ", a);
+  console.log("  result:  ", a === e ? "PASS" : "FAIL");
+}
+
+test("Default marks, passMark 50", analyseMarks(marks), {
+  total: 458, average: 57.25, highest: 100, lowest: 0, range: 100,
+  passed: 5, failed: 3, evenCount: 6, passRate: 62.5, status: "Target met", grade: "C",
+});
+
+test("[0, 50, 100]", analyseMarks([0, 50, 100]), {
+  total: 150, average: 50, highest: 100, lowest: 0, range: 100,
+  passed: 2, failed: 1, evenCount: 3, passRate: 66.67, status: "Target met", grade: "C",
+});
+
+test('["70", 40] (string rejected)', analyseMarks(["70", 40]), null);
+test("[] (empty)", analyseMarks([]), null);
+test("passMark = 101 (out of range)", analyseMarks(marks, 101), null);
+test("Not an array", analyseMarks("78,45"), null);
+
+/*
+EXPLANATIONS
+
+How the loop terminates:
+  The loop starts at i = 0 and does i++ each time. It stops when
+  i < marks.length becomes false, i.e. after the last index.
+  The condition depends only on i and the array length.
+
+How passMark can change independently:
+  passMark is a function parameter (default 50). The loop condition never uses it.
+  passMark is only used inside the loop body in "mark >= passMark".
+  So changing it (e.g. analyseMarks(marks, 30)) changes passed/failed counts,
+  but the loop runs the same number of times.
+
+Strict vs loose equality:
+  === compares value AND type:  50 === "50"  -> false
+  ==  converts types first:     50 == "50"   -> true,   0 == ""  -> true
+  I use === so a string like "70" is never treated as the number 70.
+
+Operators used:
+  Arithmetic: + - * / %   (total / length, mark % 2, passed / length * 100)
+  Assignment: = and +=
+  Increment:  ++ (passed++, failed++, evenCount++, i++)
+  Comparison: === < >= >
+  Logical:    ! and &&  (average >= 60 && average < 80, Number.isInteger(n) && n >= 0)
+  Ternary:    ? :  (status)
+*/
+</script>

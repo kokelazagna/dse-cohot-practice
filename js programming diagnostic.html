@@ -1,0 +1,38 @@
+<script>
+    const marks = [78,45,90,62,50,0,100,33];
+    let total = 0;
+    let avg = 0;
+    let highest = 0;
+    let lowest = 0;
+   const anlyseMarks =(mk,passMk = 50)=>{
+    if(typeof mk !== "object" || mk.length === 0){
+        return null
+    }
+    if(mk.some(m => !Number.isInteger(m))){
+        return null
+    }
+
+    if(!Number.isInteger(passMk)) {{
+        return null
+    }}
+    // if(passMk > 50){
+    //     return "pass"
+    // }
+
+    // if(passMk < 50){
+    //     return "failed"
+    // }
+
+    for(const mks of mk){
+        total += mks;
+    }
+    if()
+    avg = total/ mk.length
+    console.log("total marks is"+ total)
+    console.log("average is" + avg)
+   }
+
+   console.log(anlyseMarks(marks,60))
+
+ 
+</script>
