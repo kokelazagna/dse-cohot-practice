@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-family: "Manrope", sans-serif;
+        }
+        main{
+            flex: 1;
+        }
+        nav{
+            max-width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .nav-cont{
+            width: 1300px;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid lightgrey;
+        }
+        .logo{
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .logo .logo-mark{
+            font-size: xx-large;
+            font-weight: 600;
+            background-color: darkblue;
+            padding: 10px;
+            color: white;
+            border-radius: 7px;
+        }
+        .logo-txt{
+            font-weight: 700;
+            font-size: xx-large;
+        }
+        .nav-link a{
+            text-decoration: none;
+            color: black;
+            padding: 10px;
+            font-size: large;
+            font-weight:300;
+        }
+        .nav-btn{
+            border: none;
+            color: white;
+            background-color: darkblue;
+            padding: 20px;
+            border-radius: 7px;
+        }
+        .sec1{
+            background-color: #ebebeb;
+            display: flex;
+            justify-content: center;
+            justify-content: center;
+            padding: 50px;
+            max-width: 100%;
+            width: 100%;
+
+        }
+        .sec1-cont{
+            display: flex;
+            width: 1270px;
+        }
+        .sec1-left{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex: 1;
+        }
+        .sec1-left-cont{
+            width: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .sec1-right{
+            flex: 1;
+        }
+        .sec1 h3{
+            color: darkblue;
+        }
+        .sec1 h1{
+            margin: 0;
+            font-size: 70px;
+            font-weight: 700;
+        }
+        .sec1 .btn-txt{
+            display: flex;
+            gap: 30px;
+        }
+        .btn-txt button{
+            border: none;
+            background-color: darkblue;
+            border-radius: 7px;
+            color: white;
+            padding: 10px;
+        }
+        .sec1-right{
+            max-width: 100%;
+            width: 100%;
+        }
+        .sec1-right{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .sec1-right img{
+            width: 100%;
+            border-radius: 7px;
+        }
+        .sec2{
+            max-width: 100%;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            padding: 30px 0;
+        }
+        .sec2-cont {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 30px;
+            
+        }
+        .sec2-header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .sec2-header{
+            display: flex;
+            justify-content: space-between;
+        }
+        .sec2-body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+        .card{
+            max-width: 400px;
+            width: 100%;
+            border: 1px solid lightgray;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-img img{
+            width: 100%;
+            object-fit: cover;
+        }
+        .card-txt{
+            padding: 20px;
+        }
+        .badge{
+            display: flex;
+            justify-content: space-between;
+        }
+        .badge p:first-child{
+            background-color: rgb(217, 250, 250);
+            border-radius: 7px;
+            padding:  7px 10px;
+            text-align: center;
+        }
+        .card-bd-txt .txt{
+            border-bottom: 1px solid lightgray;
+        }
+        .card-bd-txt a {
+            padding-top: 10px 0;
+        }
+        .card-bd-txt .txt{
+            margin-bottom : 10px;
+        }
+        .card-txt-btn a {
+            color: darkblue;
+            text-decoration: none;
+        }
+        .sec3{
+            background-color: #E3E8E7;
+            max-width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 30px 0;
+            width: 100%;
+        }
+        .sec3-cont{
+            display: flex;
+            justify-content: space-between;
+            width: 1270px;
+        }
+        .sec3-cont .right ul{
+            padding: 20px;
+        }
+        footer{
+            background-color: #071529;
+            color: white;
+        }
+        .cls{
+            max-width: 100%;
+            width: 100%;
+            display: grid;
+            justify-content: center;
+            
+        }
+        .cls-cont{
+            width: 1270px;
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            border-bottom: 1px solid #ccc;
+        }
+        .cl p{
+            font-size: xx-large;
+            font-weight: 700;
+        }
+        .cl ul{
+            list-style-type: none;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    
+    <nav>
+        <div class="nav-cont">
+            <div class="logo">
+                <span class="logo-mark">S</span>
+                <span class="logo-txt">SkillLab</span>
+            </div>
+            <div class="nav-link">
+                <a href="#">Home</a>
+                <a href="#">Courses</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </div>
+            <button class="nav-btn">Explore courses </button>
+        </div>
+    </nav>
+    <main>
+        <section class="sec1">
+            <div class="sec1-cont">
+                <div class="sec1-left">
+                    <div class="sec1-left-cont">
+                        <h3>YOUR NEXT CHAPTER STARTS HERE</h3>
+                        <h1>Learn the skills </h1>
+                        <h1 style="color : darkblue">Build your future.</h1>
+                        <p>Turn your curiosity into practical skills. Explore hand-on <br>
+                            courses and create websites you can be proud</p>
+                        <div class="btn-txt">
+                            <button>Findd your course</button>
+                            <p>How we learn</p>
+                        </div>
+                        <p>Practical clear guidance Learn by doing</p>
+                    </div>
+                </div>
+                <div class="sec1-right">
+                    <img src="images/hero.svg" alt="">
+                    <p>From your first idea to your finished website.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="sec2">
+            <div class="sec2-cont">
+                <div class="sec2-header">
+                        <div class="left-txt">
+                            <p style="color: darkblue;">LEARN SOMETHING NEW</p>
+                            <p style="font-size: xx-large; font-weight: 700;">A great place to start</p>
+                        </div>
+                        <div class="right-txt">
+                            <p>Three pathways One goal:</p>
+                            <p>make something that matches</p>
+                        </div>                
+                </div>
+                <div class="sec2-body">
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="images/html-css.svg" alt="">
+                        </div>
+                        <div class="card-txt">
+                            <div class="badge">
+                                <p>Beginner</p>
+                                <p>4 weeks</p>
+                            </div>
+                            <div class="card-bd-txt">
+                                <div class="txt">
+                                    <h2>website Development</h2>
+                                    <p>Create well-structured pagess and style beauutiful responsive layouts</p>
+                                    <p>HTML . CSS . Responsive design</p>
+                                </div>
+                                <span class="card-txt-btn"><a href="#">View course details</a></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="images/javascript.svg" alt="">
+                        </div>
+                        <div class="card-txt">
+                            <div class="badge">
+                                <p>Intermediate</p>
+                                <p>4 weeks</p>
+                            </div>
+                            <div class="card-bd-txt">
+                                <div class="txt">
+                                    <h2>Javascript Essentials</h2>
+                                    <p>Bring your ideas to life with function,arrays and problem-solving</p>
+                                    <p>Function . Arrays . logic</p>
+                                </div>
+                                <span class="card-txt-btn"><a href="#">View course details</a></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="images/ui-design.svg" alt="">
+                        </div>
+                        <div class="card-txt">
+                            <div class="badge">
+                                <p>Beginner</p>
+                                <p>4 weeks</p>
+                            </div>
+                            <div class="card-bd-txt">
+                                <div class="txt">
+                                    <h2>UI Design Foundations</h2>
+                                    <p>Design clear Interfaces that put people and their needs first</p>
+                                    <p>Layouut . colour .T Typography</p>
+                                </div>
+                                <span class="card-txt-btn"><a href="#">View course details</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="sec3">
+            <div class="sec3-cont">
+                <div class="left">
+                    <p>THE SKILLAB APPROACH</p>
+                    <h2>Less Wtching. <br> More Creating</h2>
+                </div>
+                <div class="right">
+                    <p>Start with a clear example. practice one skill at a time,and combine what you <br>learn into a finished project</p>
+                    <ul>
+                        <li>Build a real page from a design</li>
+                        <li>Test your layout on different screen sizes</li>
+                        <li>Explain your choices and improve through feedback</li>
+                    </ul>
+                </div>
+            </div>
+            
+        </section>
+    </main>
+
+    <footer>
+        <div class="cls">
+            <div class="cls-cont">
+                <div class="cl">
+                    <p>SkillLab.</p>
+                    <ul>
+                        <li>Learn Build Grow</li>
+                        <li>A fictional academy for classroom practice</li>
+                    </ul>
+                </div>
+                <div class="cl">
+                    <p>SkillLab.</p>
+                    <ul>
+                        <li>Learn Build Grow</li>
+                        <li>A fictional academy for classroom practice</li>
+                    </ul>
+                </div>
+                <div class="cl">
+                    <p>SkillLab.</p>
+                    <ul>
+                        <li>Learn Build Grow</li>
+                        <li>A fictional academy for classroom practice</li>
+                    </ul>
+                </div>
+            </div>
+             <p>© 2026 SkillLab teaching example. Built with HTML and CSS.</p>
+        </div>
+    </footer>
+</body>
+</html>
