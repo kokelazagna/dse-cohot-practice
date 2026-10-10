@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,25 +9,29 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
     <style>
-        *{
+        * {
             box-sizing: border-box;
         }
-        body{
+
+        body {
             margin: 0;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             font-family: "Manrope", sans-serif;
         }
-        main{
+
+        main {
             flex: 1;
         }
-        nav{
+
+        nav {
             max-width: 100%;
             display: flex;
             justify-content: center;
         }
-        .nav-cont{
+
+        .nav-cont {
             width: 1300px;
             padding: 20px;
             display: flex;
@@ -34,13 +39,14 @@
             align-items: center;
             border-bottom: 1px solid lightgrey;
         }
-        .logo{
+
+        .logo {
             display: flex;
             gap: 20px;
             align-items: center;
         }
 
-        .logo .logo-mark{
+        .logo .logo-mark {
             font-size: xx-large;
             font-weight: 600;
             background-color: darkblue;
@@ -48,25 +54,29 @@
             color: white;
             border-radius: 7px;
         }
-        .logo-txt{
+
+        .logo-txt {
             font-weight: 700;
             font-size: xx-large;
         }
-        .nav-link a{
+
+        .nav-link a {
             text-decoration: none;
             color: black;
             padding: 10px;
             font-size: large;
-            font-weight:300;
+            font-weight: 300;
         }
-        .nav-btn{
+
+        .nav-btn {
             border: none;
             color: white;
             background-color: darkblue;
             padding: 20px;
             border-radius: 7px;
         }
-        .sec1{
+
+        .sec1 {
             background-color: #ebebeb;
             display: flex;
             justify-content: center;
@@ -76,88 +86,105 @@
             width: 100%;
 
         }
-        .sec1-cont{
+
+        .sec1-cont {
             display: flex;
             width: 1270px;
         }
-        .sec1-left{
+
+        .sec1-left {
             display: flex;
             flex-direction: column;
             justify-content: center;
             flex: 1;
         }
-        .sec1-left-cont{
+
+        .sec1-left-cont {
             width: 100%;
             margin: 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
-        .sec1-right{
+
+        .sec1-right {
             flex: 1;
         }
-        .sec1 h3{
+
+        .sec1 h3 {
             color: darkblue;
         }
-        .sec1 h1{
+
+        .sec1 h1 {
             margin: 0;
             font-size: 70px;
             font-weight: 700;
         }
-        .sec1 .btn-txt{
+
+        .sec1 .btn-txt {
             display: flex;
             gap: 30px;
         }
-        .btn-txt button{
+
+        .btn-txt button {
             border: none;
             background-color: darkblue;
             border-radius: 7px;
             color: white;
             padding: 10px;
         }
-        .sec1-right{
+
+        .sec1-right {
             max-width: 100%;
             width: 100%;
         }
-        .sec1-right{
+
+        .sec1-right {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-        .sec1-right img{
+
+        .sec1-right img {
             width: 100%;
             border-radius: 7px;
         }
-        .sec2{
+
+        .sec2 {
             max-width: 100%;
             display: flex;
             justify-content: center;
             width: 100%;
             padding: 30px 0;
         }
+
         .sec2-cont {
             display: flex;
             flex-direction: column;
             justify-content: center;
             gap: 30px;
-            
+
         }
-        .sec2-header{
+
+        .sec2-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .sec2-header{
+
+        .sec2-header {
             display: flex;
             justify-content: space-between;
         }
-        .sec2-body{
+
+        .sec2-body {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 30px;
         }
-        .card{
+
+        .card {
             max-width: 400px;
             width: 100%;
             border: 1px solid lightgray;
@@ -166,37 +193,45 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .card-img img{
+        .card-img img {
             width: 100%;
             object-fit: cover;
         }
-        .card-txt{
+
+        .card-txt {
             padding: 20px;
         }
-        .badge{
+
+        .badge {
             display: flex;
             justify-content: space-between;
         }
-        .badge p:first-child{
+
+        .badge p:first-child {
             background-color: rgb(217, 250, 250);
             border-radius: 7px;
-            padding:  7px 10px;
+            padding: 7px 10px;
             text-align: center;
         }
-        .card-bd-txt .txt{
+
+        .card-bd-txt .txt {
             border-bottom: 1px solid lightgray;
         }
+
         .card-bd-txt a {
             padding-top: 10px 0;
         }
-        .card-bd-txt .txt{
-            margin-bottom : 10px;
+
+        .card-bd-txt .txt {
+            margin-bottom: 10px;
         }
+
         .card-txt-btn a {
             color: darkblue;
             text-decoration: none;
         }
-        .sec3{
+
+        .sec3 {
             background-color: #E3E8E7;
             max-width: 100%;
             display: flex;
@@ -204,47 +239,252 @@
             padding: 30px 0;
             width: 100%;
         }
-        .sec3-cont{
+
+        .sec3-cont {
             display: flex;
             justify-content: space-between;
             width: 1270px;
         }
-        .sec3-cont .right ul{
+
+        .sec3-cont .right ul {
             padding: 20px;
         }
-        footer{
+
+        footer {
             background-color: #071529;
             color: white;
         }
-        .cls{
+
+        .cls {
             max-width: 100%;
             width: 100%;
             display: grid;
             justify-content: center;
-            
+
         }
-        .cls-cont{
+
+        .cls-cont {
             width: 1270px;
             display: flex;
             justify-content: space-between;
             gap: 30px;
             border-bottom: 1px solid #ccc;
         }
-        .cl p{
+
+        .cl p {
             font-size: xx-large;
             font-weight: 700;
         }
-        .cl ul{
+
+        .cl ul {
             list-style-type: none;
             padding: 0;
         }
-        .cl ul li{
+
+        .cl ul li {
             padding: 10px;
+        }
+
+
+        @media (max-width: 1320px) {
+
+            .nav-cont,
+            .sec1-cont,
+            .sec3-cont,
+            .cls-cont,
+            .sec2-cont {
+                width: 100%;
+            }
+
+            .sec2 {
+                padding: 30px 24px;
+            }
+
+            .cls-cont {
+                padding: 0 24px;
+            }
+
+            footer .cls>p {
+                padding: 0 24px;
+            }
+        }
+
+
+        @media (max-width: 1024px) {
+            .sec1 {
+                padding: 40px 24px;
+            }
+
+            .sec1-cont {
+                gap: 30px;
+            }
+
+            .sec1 h1 {
+                font-size: 48px;
+            }
+
+            .sec2-body {
+                flex-wrap: wrap;
+                align-items: stretch;
+            }
+
+            .card {
+                flex: 1 1 280px;
+                max-width: 100%;
+            }
+
+            .sec3 {
+                padding: 30px 24px;
+            }
+
+            .sec3-cont {
+                gap: 30px;
+            }
+
+            .cls-cont {
+                flex-wrap: wrap;
+            }
+
+            .cl {
+                flex: 1 1 200px;
+            }
+        }
+
+
+        @media (max-width: 768px) {
+
+            /* Navbar */
+            .nav-cont {
+                flex-wrap: wrap;
+                gap: 15px;
+                padding: 15px;
+                justify-content: center;
+            }
+
+            .logo-txt,
+            .logo .logo-mark {
+                font-size: x-large;
+            }
+
+            .nav-link {
+                order: 3;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .nav-btn {
+                padding: 12px 16px;
+            }
+
+            /* Hero */
+            .sec1 {
+                padding: 30px 16px;
+            }
+
+            .sec1-cont {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .sec1 h1 {
+                font-size: 38px;
+            }
+
+            .sec1-left p br,
+            .sec3 .right p br {
+                display: none;
+            }
+
+            /* stop forced line breaks */
+            .sec1 .btn-txt {
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .btn-txt button {
+                padding: 12px 18px;
+            }
+
+            /* Courses */
+            .sec2 {
+                padding: 30px 16px;
+            }
+
+            .sec2-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0;
+            }
+
+            .sec2-body {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .card {
+                flex: none;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            /* Approach */
+            .sec3 {
+                padding: 30px 16px;
+            }
+
+            .sec3-cont {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .sec3-cont .right ul {
+                padding: 0 0 0 20px;
+            }
+
+            /* Footer */
+            .cls-cont {
+                flex-direction: column;
+                gap: 0;
+                padding: 20px 16px;
+            }
+
+            footer .cls>p {
+                padding: 15px 16px;
+                text-align: center;
+            }
+        }
+
+        /* ---------- Small phones (<= 480px) ---------- */
+        @media (max-width: 480px) {
+            .sec1 h1 {
+                font-size: 30px;
+            }
+
+            .sec1 h3 {
+                font-size: 14px;
+            }
+
+            .nav-link a {
+                padding: 6px;
+                font-size: medium;
+            }
+
+            .cl p {
+                font-size: x-large;
+            }
+
+            .badge {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
+
 <body>
-    
+
     <nav>
         <div class="nav-cont">
             <div class="logo">
@@ -287,14 +527,14 @@
         <section class="sec2">
             <div class="sec2-cont">
                 <div class="sec2-header">
-                        <div class="left-txt">
-                            <p style="color: darkblue;">LEARN SOMETHING NEW</p>
-                            <p style="font-size: xx-large; font-weight: 700;">A great place to start</p>
-                        </div>
-                        <div class="right-txt">
-                            <p>Three pathways One goal:</p>
-                            <p>make something that matches</p>
-                        </div>                
+                    <div class="left-txt">
+                        <p style="color: darkblue;">LEARN SOMETHING NEW</p>
+                        <p style="font-size: xx-large; font-weight: 700;">A great place to start</p>
+                    </div>
+                    <div class="right-txt">
+                        <p>Three pathways One goal:</p>
+                        <p>make something that matches</p>
+                    </div>
                 </div>
                 <div class="sec2-body">
                     <div class="card">
@@ -367,7 +607,8 @@
                     <h2>Less Wtching. <br> More Creating</h2>
                 </div>
                 <div class="right">
-                    <p>Start with a clear example. practice one skill at a time,and combine what you <br>learn into a finished project</p>
+                    <p>Start with a clear example. practice one skill at a time,and combine what you <br>learn into a
+                        finished project</p>
                     <ul>
                         <li>Build a real page from a design</li>
                         <li>Test your layout on different screen sizes</li>
@@ -375,7 +616,7 @@
                     </ul>
                 </div>
             </div>
-            
+
         </section>
     </main>
 
@@ -406,8 +647,9 @@
                     </ul>
                 </div>
             </div>
-             <p>© 2026 SkillLab teaching example. Built with HTML and CSS.</p>
+            <p>© 2026 SkillLab teaching example. Built with HTML and CSS.</p>
         </div>
     </footer>
 </body>
+
 </html>
